@@ -15,7 +15,7 @@ const UpdatePrompt = () => {
 
 	useEffect(() => {
 		const getPromptDetails = async () => {
-			if (!promptId) return; // Early exit if no promptId
+			if (!promptId) return;
 
 			try {
 				const response = await fetch(`/api/prompt/${promptId}`);
