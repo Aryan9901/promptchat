@@ -23,10 +23,12 @@ const Feed = () => {
 	const [searchedResults, setSearchedResults] = useState([]);
 
 	const fetchPosts = async () => {
-		const response = await fetch("/api/prompt");
-		const data = await response.json();
-		console.log(data);
-		setAllPosts(data);
+		const fetchPosts = async () => {
+			const response = await fetch(`/api/prompt?timestamp=${new Date().getTime()}`);
+			const data = await response.json();
+			console.log("Fetched data length:", data.length);
+			setAllPosts(data);
+		};
 	};
 
 	useEffect(() => {
