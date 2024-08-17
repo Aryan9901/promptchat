@@ -6,18 +6,9 @@ export const GET = async (request) => {
 		await connectToDB();
 
 		const prompts = await Prompt.find().populate("creator");
-		console.log(prompts);
+		console.log();
 
-		// Ensure no caching
-		return new Response(JSON.stringify(prompts), {
-			status: 200,
-			headers: {
-				"Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-				Pragma: "no-cache",
-				Expires: "0",
-				"Surrogate-Control": "no-store",
-			},
-		});
+		return new Response(JSON.stringify(prompts), { status: 200 });
 	} catch (error) {
 		return new Response("Internal Server Error", { status: 500 });
 	}
