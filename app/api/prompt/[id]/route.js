@@ -10,7 +10,7 @@ export const GET = async (request, { params }) => {
 
 		return new Response(JSON.stringify(prompt), { status: 200 });
 	} catch (error) {
-		return new Response("Internal Server Error", { status: 500 });
+		return new Response({ message: "Internal Server Error" }, { status: 500 });
 	}
 };
 
