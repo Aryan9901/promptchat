@@ -47,7 +47,7 @@ export const DELETE = async (request, { params }) => {
 		if (!params.id) {
 			return new Response("Prompt ID not provided", { status: 400 });
 		}
-		console.log(params);
+		console.log(Prompt);
 		// Find the prompt by ID and remove it
 		const deletedPrompt = await Prompt.findByIdAndRemove(params.id);
 		console.log(deletedPrompt);
